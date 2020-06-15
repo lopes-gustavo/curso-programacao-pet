@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Meu primeiro site</title>
+</head>
+
+<body>
+<div class="main-container flex center">
+
+  <h1 class="title">Bem vindo ao site do PET Elétrica</h1>
+
+  <div class="my-container flex">
+      <h2>Bem vindo, <span id="nomeSpan"></span></h2>
+
+      <div class="flex">
+        <h4 class="subtitle">Geral</h4>
+
+        <label for="nomeInput">Nome</label>
+        <span id="nomeInput" class="my-input"></span>
+
+        <label for="dataNascimentoInput">Data Nascimento</label>
+        <span id="dataNascimentoInput" class="my-input"></span>
+
+        <label for="telefoneInput">Telefone</label>
+        <span id="telefoneInput" class="my-input"></span>
+
+        <label for="cursoInput">Curso</label>
+        <span id="cursoInput" class="my-input"></span>
+
+        <label for="habilitacaoInput">Habilitação</label>
+        <span id="habilitacaoInput" class="my-input"></span>
+      </div>
+
+      <div class="flex">
+        <h4 class="subtitle">Endereço</h4>
+
+        <label for="ruaInput">Rua</label>
+        <span id="ruaInput" class="my-input"></span>
+
+        <label for="numeroInput">Número</label>
+        <span id="numeroInput" class="my-input"></span>
+
+        <label for="cidadeInput">Cidade</label>
+        <span id="cidadeInput" class="my-input"></span>
+      </div>
+
+  </div>
+</div>
+
+<script>
+	const urlParams = new URLSearchParams(window.location.search);
+
+  document.getElementById('nomeSpan').innerText = urlParams.get("nome");
+  document.getElementById('nomeInput').innerText = urlParams.get("nome");
+  document.getElementById('dataNascimentoInput').innerText = urlParams.get("dataNascimento");
+  document.getElementById('telefoneInput').innerText = urlParams.get("telefone");
+  document.getElementById('cursoInput').innerText = urlParams.get("curso");
+  document.getElementById('habilitacaoInput').innerText = urlParams.get("habilitacao");
+  document.getElementById('ruaInput').innerText = urlParams.get("rua");
+  document.getElementById('numeroInput').innerText = urlParams.get("numero");
+  document.getElementById('cidadeInput').innerText = urlParams.get("cidade");
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+html, body {
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Roboto', serif;
+}
+
+body {
+    background-image: url("background.jpg");
+    backdrop-filter: brightness(85%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.title {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-shadow: 4px 4px 4px #aaa;
+    font-size: 48px;
+}
+
+.subtitle {
+    margin-top: 1rem;
+}
+
+.center {
+    align-items: center;
+}
+
+.my-container {
+    background-color: white;
+    width: 500px;
+    box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-input {
+    margin-bottom: 8px;
+    padding: 4px;
+}
+
+.my-button {
+    margin-top: 16px;
+    padding: 8px;
+}
