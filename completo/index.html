@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Meu primeiro site</title>
+</head>
+
+<body>
+<div class="main-container flex center">
+
+  <h1 class="title">Bem vindo ao site do PET Elétrica</h1>
+
+  <div class="my-container flex">
+    <form id="myForm" class="flex">
+      <h2>Cadastrar estudante</h2>
+
+      <div class="flex">
+        <h4 class="subtitle">Geral</h4>
+
+        <label for="nomeInput">Nome</label>
+        <input id="nomeInput" name="nomeInput" type="text" class="my-input" placeholder="Nome">
+
+        <label for="dataNascimentoInput">Data Nascimento</label>
+        <input id="dataNascimentoInput" name="dataNascimentoInput" type="date" class="my-input"
+               placeholder="Data Nascimento">
+
+        <label for="telefoneInput">Telefone</label>
+        <input id="telefoneInput" name="telefoneInput" type="text" class="my-input" placeholder="Telefone">
+
+        <label for="cursoInput">Curso</label>
+        <input id="cursoInput" name="cursoInput" type="text" class="my-input" placeholder="Curso">
+
+        <label for="habilitacaoInput">Habilitação</label>
+        <input id="habilitacaoInput" name="habilitacaoInput" type="text" class="my-input" placeholder="Habilitacao">
+      </div>
+
+      <div class="flex">
+        <h4 class="subtitle">Endereço</h4>
+
+        <label for="ruaInput">Rua</label>
+        <input id="ruaInput" name="ruaInput" type="text" class="my-input" placeholder="Rua">
+
+        <label for="numeroInput">Número</label>
+        <input id="numeroInput" name="numeroInput" type="number" class="my-input" placeholder="Número">
+
+        <label for="cidadeInput">Cidade</label>
+        <input id="cidadeInput" name="cidadeInput" type="text" class="my-input" placeholder="Cidade">
+      </div>
+
+      <button id="submitButton" class="btn btn-primary my-button" type="submit">Salvar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+	document.getElementById('myForm').addEventListener('submit', function (event) {
+		event.preventDefault();
+
+		const nome = document.getElementById('nomeInput').value;
+		const dataNascimento = document.getElementById('dataNascimentoInput').value;
+		const telefone = document.getElementById('telefoneInput').value;
+		const curso = document.getElementById('cursoInput').value;
+		const habilitacao = document.getElementById('habilitacaoInput').value;
+		const rua = document.getElementById('ruaInput').value;
+		const numero = document.getElementById('numeroInput').value;
+		const cidade = document.getElementById('cidadeInput').value;
+
+	  const urlParams = new URLSearchParams();
+	  urlParams.append('nome', nome)
+	  urlParams.append('dataNascimento', dataNascimento)
+	  urlParams.append('telefone', telefone)
+	  urlParams.append('curso', curso)
+	  urlParams.append('habilitacao', habilitacao)
+	  urlParams.append('rua', rua)
+	  urlParams.append('numero', numero)
+	  urlParams.append('cidade', cidade)
+
+	  const queryParams = ''.concat(
+			'?nome=', nome,
+			'&dataNascimento=', dataNascimento,
+			'&telefone=', telefone,
+			'&curso=', curso,
+			'&habilitacao=', habilitacao,
+			'&rua=', rua,
+			'&numero=', numero,
+			'&cidade=', cidade,
+		);
+
+		location.href = "./estudante.html" + queryParams;
+		location.href = "./estudante.html" + "?" + urlParams.toString();
+	});
+</script>
+</body>
+
+</html>
