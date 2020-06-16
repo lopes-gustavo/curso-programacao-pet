@@ -13,16 +13,33 @@
 </head>
 <body>
 <div class="container mt-5">
-  <div class="row">
-    <ul class="list-group" style="width: 500px">
-      <li class="list-group-item list-group-item-secondary">Lista de aulas</li>
-      <li class="list-group-item"><a href="./completo/index.html">Site completo</a></li>
-      <li class="list-group-item"><a href="./aula_01/index.html">Aula 01</a></li>
-      <li class="list-group-item"><a href="./aula_02/index.html">Aula 02</a></li>
-      <li class="list-group-item"><a href="./aula_02/exemplo_flex.html">Aula 02 - Exemplo flex</a></li>
-    </ul>
+  <div class="row justify-content-between">
+    <div class="col-8">
+      <div id="md-content"></div>
+    </div>
+
+    <div class="col-3">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success">Sites desenvolvidos</li>
+        <li class="list-group-item"><a href="./completo/index.html">Site completo</a></li>
+        <li class="list-group-item"><a href="./aula_01/index.html">Aula 01</a></li>
+        <li class="list-group-item"><a href="./aula_02/index.html">Aula 02</a></li>
+        <li class="list-group-item"><a href="./aula_02/exemplo_flex.html">Aula 02 - Exemplo flex</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+	(async function() {
+		// const mdUrl = 'https://raw.githubusercontent.com/lopes-gustavo/curso-programacao-pet/master/README.md';
+		const mdUrl = 'README.md';
+		const mdRaw = await fetch(mdUrl).then(resp => resp.text());
+	  document.getElementById('md-content').innerHTML = marked(mdRaw);
+	})()
+</script>
 
 </body>
 </html>
