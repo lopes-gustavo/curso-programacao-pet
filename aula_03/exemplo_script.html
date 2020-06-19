@@ -1,0 +1,36 @@
+<h1>
+  Abra o console. Tudo está acontecendo lá. (Normalmente é "F12" e aperte na aba "console")
+</h1>
+
+<script>
+  'use strict'
+
+  function exibeMensagem(mensagem) {
+	  console.log(mensagem);
+  }
+
+  const exibeMensagem2 = function(mensagem) {
+	  console.log(mensagem);
+  }
+
+  const exibeMensagem3 = (mensagem) => {
+	  console.log(mensagem);
+  }
+
+  const mensagem = "olá, mundo";
+  exibeMensagem(mensagem);
+  exibeMensagem2(mensagem + " 2");
+  exibeMensagem3(`${mensagem} 3`);
+
+  const meuObjeto = {
+  	minhaChave: 5,
+    outraChave: "ola",
+    chaveComObjeto: {
+  		chave2: true,
+    }
+  };
+  exibeMensagem(meuObjeto.chaveComObjeto);
+
+  const meuArray = [4, "ola", meuObjeto];
+  exibeMensagem(meuArray);
+</script>

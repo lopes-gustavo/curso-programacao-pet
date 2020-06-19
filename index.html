@@ -9,6 +9,25 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/styles/default.min.css">
+  <style>
+    pre {
+      margin-top: 8px;
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: #f6f8fa;
+      border-radius: 6px;
+    }
+    :not(pre)>code {
+      padding: .2em .4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(27,31,35,.05);
+      border-radius: 6px;
+    }
+  </style>
 
   <title>Curso Programação</title>
 </head>
@@ -26,6 +45,8 @@
         <li class="list-group-item"><a href="./aula_01/index.html">Aula 01</a></li>
         <li class="list-group-item"><a href="./aula_02/index.html">Aula 02</a></li>
         <li class="list-group-item"><a href="./aula_02/exemplo_flex.html">Aula 02 - Exemplo flex</a></li>
+        <li class="list-group-item"><a href="./aula_03/index.html">Aula 03</a></li>
+        <li class="list-group-item"><a href="./aula_03/exemplo_script.html">Aula 03 - Exemplo script</a></li>
       </ul>
     </div>
   </div>
@@ -33,12 +54,19 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.1/build/highlight.min.js"></script>
+
 <script>
 	(async function() {
 		// const mdUrl = 'https://raw.githubusercontent.com/lopes-gustavo/curso-programacao-pet/master/README.md';
 		const mdUrl = 'README.md';
 		const mdRaw = await fetch(mdUrl).then(resp => resp.text());
-	  document.getElementById('md-content').innerHTML = marked(mdRaw);
+	  document.getElementById('md-content').innerHTML = marked(mdRaw, {
+	  	highlight: function(code, language) {
+		    const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+		    return hljs.highlight(validLanguage, code).value;
+	    },
+    });
 	})()
 </script>
 
