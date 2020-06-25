@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teste callback</title>
+</head>
+<body>
+ola mundo
+
+<script>
+  function perguntaNome(transformCallback) {
+	  const nome = prompt("seu nome");
+	  const newNome = transformCallback(nome);
+	  return newNome;
+  }
+
+  // const nome1 = perguntaNome(nome => nome.toUpperCase());
+  // console.log(nome1);
+  //
+  // const nome2 = perguntaNome(nome => nome.toLowerCase());
+  // console.log(nome2);
+
+  // const s = [1, 2, 3, 4].map(x => x * x);
+  // console.log(s);
+
+  function filter(arr, filtroFunction) {
+  	const arrReturn = [];
+  	for (let i = 0; i < arr.length; i++) {
+	    const elem = arr[i];
+
+	    const shouldMaintain = filtroFunction(elem);
+
+	    if (shouldMaintain) {
+  	    arrReturn.push(elem)
+      }
+    }
+  	return arrReturn;
+  }
+
+  const meuArray = [1, 2, 3, 4];
+
+  const pares = filter(meuArray, elem => elem % 2 === 0);
+  console.log(pares);
+
+  const isOdd = elem => elem % 2 === 1;
+  const impares = filter(meuArray, isOdd);
+  console.log(impares);
+
+</script>
+</body>
+</html>

@@ -53,6 +53,20 @@ Veja em mais em: https://github.com/lopes-gustavo/curso-programacao-pet
     + [Markdown](#markdown)
     + [Javascript](#javascript-1)
     + [Template literals](#template-literals)
+- [Aula 4](#aula-4)
+  * [Emmet](#emmet)
+  * [Javascript como arquivo separado](#javascript-como-arquivo-separado)
+  * [Objetos com funções dentro](#objetos-com-funcoes-dentro)
+  * [Spread operator "..."](#spread-operator-)
+  * [Lambda](#lambda)
+  * [Igualdade com `==` e `===`](#igualdade-com--e-)
+  * [Referências](#referencias-2)
+    + [Emmet](#emmet-1)
+    + [Javascript como arquivo separado](#javascript-como-arquivo-separado-1)
+    + [Objetos](#objetos)
+    + [Spread operator](#spread-operator)
+    + [Lambda](#lambda-1)
+    + [Igualdade](#igualdade)
 
 <!-- tocstop -->
 
@@ -430,3 +444,68 @@ npm install -g live-server
 
 #### Template literals
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+-----------
+
+## Aula 4
+
+### Emmet
+- São comandos que preenchem uma boa parte do código repetido (boilerplate) pra você
+
+### Javascript como arquivo separado
+- Crie um arquivo com extensão `.js`
+- Adicione no seu html
+```html
+<script src="script.js"></script>
+```
+
+### Objetos com funções dentro
+- Um objeto pode ter qualquer tipo de propriedade. Inclusive uma função
+- `console.log()` é um objeto `console` que uma chave `log`, que é uma função
+
+### Spread operator "..."
+- Para receber um número variável de parâmetros numa função, pode usar o spread operator (`...`)
+```js
+function sum(...n) {
+  let out = 0;
+  for (let i = 0; i < n.length; i++) {
+    out += n[i];
+  }
+  return out;
+}
+```
+
+### Lambda
+- Lambda são arrow funçtions de uma linha apenas
+```js
+const add = (a, b) => a + b;
+```
+
+### Igualdade com `==` e `===`
+- `==` compara os objetos como se fossem string
+- `===` compara os objetos levando em consideração o tipo
+- Sempre usar 3 iguais `===`
+
+
+### Referências
+
+#### Emmet
+- https://emmet.io/
+- https://code.visualstudio.com/docs/editor/emmet
+- https://www.jetbrains.com/help/webstorm/settings-emmet.html
+
+#### Javascript como arquivo separado
+- https://www.w3schools.com/tags/att_script_src.asp
+
+#### Objetos
+- https://www.w3schools.com/js/js_objects.asp
+
+#### Spread operator
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
+#### Lambda
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+#### Igualdade
+- https://www.w3schools.com/js/js_comparisons.asp
+- https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a
