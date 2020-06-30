@@ -447,6 +447,8 @@ npm install -g live-server
 
 -----------
 
+-----------
+
 ## Aula 4
 
 ### Emmet
@@ -509,3 +511,91 @@ const add = (a, b) => a + b;
 #### Igualdade
 - https://www.w3schools.com/js/js_comparisons.asp
 - https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a
+
+-----------
+
+## Aula 5
+
+### Loops
+
+#### `for..of`
+```js
+const arr = [1, 2, 3];
+for (const elem of arr) {
+  console.log(elem); //1 -> 2 -> 3
+}
+```
+
+#### `.foreach()`
+```js
+const arr = [1, 2, 3];
+arr.forEach((elem => {
+  console.log(elem); // 1 -> 2 -> 3
+}));
+```
+
+#### `.map()`
+```js
+const arr = [1, 2, 3];
+const out = arr.map((elem => {
+  return elem * 2;
+}));
+console.log(out); //[2, 4, 6]
+```
+
+#### `.filter()`
+```js
+const arr = [1, 2, 3, 4];
+const out = arr.filter((elem => {
+  return elem > 2;
+}));
+console.log(out); //[3, 4]
+```
+
+### Classes
+- Classes são uma forma de criar objetos
+```js
+class MyClass {
+  constructor(valorInicial) {
+    this.algumValor = valorInicial;
+  }
+  duplica() {
+    return this.algumValor * 2;
+  }
+  soma(x) {
+    return this.algumValor + x;
+  }
+}
+const meuObjeto = MyClass(5);
+const dobro = meuObjeto.duplica(); // 10
+const somado = meuObjeto.soma(2); // 7
+```
+
+### Query Parameters
+- Query parameters (também chamado de query params ou search params)
+são argumentos passados na URL, com finalidade de passar/buscar dados
+- Utilizam o conceito de classe
+- Ex: `meusite.com/pagina.html?param1=valor1&param2=valor2&param3=valor3`
+
+```js
+const urlParams = new URLSearchParams();
+urlParams.append('nome', 'meuNome');
+urlParams.append('dataNascimento', '01-01-1991');
+
+// Para fazer redirect
+location.href = "./outra-pagina.html" + "?" + urlParams.toString();
+```
+
+### Referências
+#### Loops
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+#### Classes
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class
+
+#### Query Parameters
+- https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+
