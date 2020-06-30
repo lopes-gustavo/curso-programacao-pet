@@ -67,6 +67,31 @@ Veja em mais em: https://github.com/lopes-gustavo/curso-programacao-pet
     + [Spread operator](#spread-operator)
     + [Lambda](#lambda-1)
     + [Igualdade](#igualdade)
+- [Aula 5](#aula-5)
+  * [Loops](#loops)
+    + [`for..of`](#forof)
+    + [`.foreach()`](#foreach)
+    + [`.map()`](#map)
+    + [`.filter()`](#filter)
+  * [Classes](#classes)
+  * [Query Parameters](#query-parameters)
+  * [Referências](#referencias-3)
+    + [Loops](#loops-1)
+    + [Classes](#classes-1)
+    + [Query Parameters](#query-parameters-1)
+- [Aula 6](#aula-6)
+  * [Servidor](#servidor)
+  * [request/response](#requestresponse)
+  * [REST](#rest)
+  * [JSON](#json)
+  * [Fetch](#fetch)
+  * [Promise](#promise)
+  * [Referências](#referencias-4)
+    + [HTTP (request/response)](#http-requestresponse)
+    + [REST](#rest-1)
+    + [JSON](#json-1)
+    + [Fetch](#fetch-1)
+    + [Promise](#promise-1)
 
 <!-- tocstop -->
 
@@ -587,6 +612,7 @@ location.href = "./outra-pagina.html" + "?" + urlParams.toString();
 ```
 
 ### Referências
+
 #### Loops
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
@@ -599,3 +625,86 @@ location.href = "./outra-pagina.html" + "?" + urlParams.toString();
 #### Query Parameters
 - https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 
+-----------
+
+-----------
+
+## Aula 6
+
+### Servidor
+- Os dados das páginas normalmente são buscados/enviados para um servidor, para serem armazenados/processados
+
+### request/response
+- Os browsers fazem um `request` e o servidor responde com um `response`
+- O request é feito em cima de uma URL, usando algumas propriedades, como:
+  - Headers
+  - Query params
+  - Body
+
+### REST
+- Rest são princípios e regras para request/response
+- Normalmente utilizam a URL (query params) para buscar a entidade desejada
+  - Ex: meusite.com/usuario/1
+  - Isso buscaria o usuário com identificador (id) igual a 1
+  
+
+### JSON
+- Json é um formato de intercâmbio de dados
+- Existem outros formatos, como texto simples, YAML, XML
+- JSON é o mais comum na internet hoje em dia
+- É muito parecido com um objeto javascript (json significa JavaScript Object Notation)
+```json
+{
+  "chave1": "valor1",
+  "chave2": 2
+}
+```
+
+### Fetch
+- Usa-se o fetch para fazer requisições para um servidor
+- O `fetch` é uma função que retorna uma promise
+- Para ler a valor de retorno, tem que transformar o `body` em `json`
+  - Para isso, tem um método auxiliar `.json()`, que retorna uma promise, com o dado transformado
+```js
+fetch('meusite.com/user/1')
+.then(response => response.json()) // Transforma a resposta em um json (poderia ser .text() para transformar em um texto)
+.then(user => console.log(user))
+```
+
+### Promise
+- Promise é um objeto javascript
+- Utilizado para operações assincronas (request/response, por exemplo)
+- Promises têm 2 métodos, `then()` e `catch()`
+  - `then()` invoca o callback quando a promise tem sucesso
+  - `catch()` invoca o callback quando a promise der error
+```js
+fetch('meusite/meu-recurso')
+.then(response => console.log("promise com sucesso"))
+.catch(error => console.log("promise com error"))
+```
+
+- Retornar uma promise no callback do then, faz com que ela possa continuar
+```js
+fetch('meusite/meu-recurso')
+.then(response1 => fetch('meusite/outro-recurso'))
+.then(response2 => console.log('outro-recurso retornado com sucesso'))
+.catch(error => console.log("promise com error"))
+```
+
+### Referências
+
+#### HTTP (request/response)
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages
+
+#### REST
+- https://becode.com.br/o-que-e-api-rest-e-restful/
+
+#### JSON
+- https://developer.mozilla.org/en-US/docs/Glossary/JSON
+- https://www.json.org/json-en.html
+
+#### Fetch
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+#### Promise
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
